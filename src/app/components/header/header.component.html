@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand">
+        <img src="/assets/logo-ingrosso.PNG" alt="Ingrosso Motori" style="height: 7vh; width: 20vh;">
+    </a>
+
+    <ul class="navbar-nav mr-auto" *ngIf="!phoneView">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/veicoli">Veicoli</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/vendite">Vendite</a>
+      </li>
+    </ul>
+   
+    <ng-container *ngIf="phoneView">
+      <button type="button" class="btn btn-outline-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 60%;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" routerLinkActive="active" routerLink="/veicoli">Veicoli</a>
+        <a class="dropdown-item" routerLinkActive="active" routerLink="/vendite">Vendite</a>
+      </div>
+    </ng-container>
+  </nav>
+
+
+  <!-- Example single danger button 
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>
+-->

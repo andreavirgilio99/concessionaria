@@ -1,0 +1,81 @@
+<button id="openModal" style="display: none;" data-bs-toggle="modal" data-bs-target="#dettagliStaticModal"></button>
+
+<div class="modal fade" id="dettagliStaticModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document" *ngIf="veicoloDettagli">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="width: 90%;">
+                        {{ veicoloDettagli.targa }}
+                        
+                        <span  [ngClass]="{'disponibile' : veicoloDettagli.stato == veicoliService.stati.DISPONIBILE, 'bloccata' : veicoloDettagli.stato == veicoliService.stati.BLOCCATO, 'venduta' : veicoloDettagli.stato == veicoliService.stati.VENDUTO}" style="float: right;">
+                            {{veicoloDettagli.stato}}
+                        </span>
+                    </h5>
+                    <button id="closeModal" type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal" (click)="reset()"></button>
+                </div>
+                <div class="modal-body">
+                    <span style="display: flex;justify-content: center;" *ngIf="veicoloDettagli.foto.length > 0; else noPics">
+                        <span *ngIf="veicoloDettagli.foto.length > 1" (click)="changePic('back')" class="material-symbols-outlined" style="margin-top: 15%; cursor: default;">
+                            arrow_back_ios
+                            </span>
+                        <img [src]="veicoloDettagli.foto[currPic]" alt="Foto {{ veicoloDettagli.targa }}" style="height: 20vh; width: 30vh;">
+                        <span *ngIf="veicoloDettagli.foto.length > 1" (click)="changePic('forward')" class="material-symbols-outlined" style="margin-top: 15%; cursor: default;">
+                            arrow_forward_ios
+                            </span>
+                    </span>
+                    <ng-template #noPics class="text-muted text-center my-3">Nessuna foto disponibile</ng-template>
+                    <form [formGroup]="updateVeicoloForm">
+                        <div class="row" style="margin-top: 2%;">
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="marca" formControlName="marca" placeholder=" ">
+                                    <label for="marca">Marca</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="modello" formControlName="modello" placeholder=" ">
+                                    <label for="modello">Modello</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="anno" formControlName="anno" placeholder=" ">
+                                    <label for="anno">Anno</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="targa" formControlName="targa" placeholder=" ">
+                                    <label for="targa">Targa</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="prezzo" formControlName="prezzo" placeholder=" " thousandSeparator="." decimalMarker="," mask="separator.2" [dropSpecialCharacters]="true">
+                                    <label for="prezzo">Prezzo</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="dataArrivo" formControlName="dataArrivo" placeholder=" ">
+                                    <label for="dataArrivo">Data Arrivo</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" id="note" style="height: 30%;" formControlName="note" placeholder="Note..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal" (click)="reset()">Annulla</button>
+                    <button type="button" class="btn btn-primary" (click)="salvaVeicolo()">Salva</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

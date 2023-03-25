@@ -1,0 +1,17 @@
+.disponibile {
+    border-left-color: rgb(118, 190, 9) !important;
+    border-left: solid;
+    border-left-width: 3px;
+}
+
+.bloccata {
+    border-left-color: rgb(233, 233, 10) !important;
+    border-left: solid;
+    border-left-width: 3px;
+}
+
+.venduta {
+    border-left-color: rgb(242, 73, 0) !important;
+    border-left: solid;
+    border-left-width: 3px;
+}
