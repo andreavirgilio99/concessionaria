@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { VenditeComponent } from './components/vendite/vendite.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
+import { AccessComponent } from './components/access/access.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { NgxMaskModule } from 'ngx-mask';
     VeicoliComponent,
     DettagliVeicoloComponent,
     HeaderComponent,
-    VenditeComponent
+    VenditeComponent,
+    AccessComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { NgxMaskModule } from 'ngx-mask';
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

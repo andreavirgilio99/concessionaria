@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,8 @@ import { Component, HostListener } from '@angular/core';
 export class HeaderComponent {
 
   phoneView = false;
+
+  constructor(public authService: AuthService){}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {

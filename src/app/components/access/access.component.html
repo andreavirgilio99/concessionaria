@@ -1,0 +1,12 @@
+<div class="access-component">
+    <div class="header">
+      <h2>Chi sei?</h2>
+    </div>
+    <div class="card-container">
+      <div class="card" *ngFor="let user of authService.listaUsers" (click)="selectUser(user)">
+        <div class="card-body">
+          <h5 class="card-title">{{user.nome}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
