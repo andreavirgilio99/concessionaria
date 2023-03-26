@@ -1,2 +1,7 @@
 @import "node_modules/ngx-toastr/toastr.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+i.bi.bi-plus {
+    color: #368816;
+    font-size: 24px;
+  }
