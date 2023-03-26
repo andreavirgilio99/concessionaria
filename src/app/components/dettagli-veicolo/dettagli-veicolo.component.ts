@@ -70,7 +70,7 @@ export class DettagliVeicoloComponent implements OnInit {
       anno: new FormControl(this.veicoloDettagli!.anno),
       targa:  new FormControl(this.veicoloDettagli!.targa),
       dataArrivo:  new FormControl(formatDate(this.veicoloDettagli!.dataArrivo, 'yyyy-MM-dd', 'en')),
-      note: new FormControl(this.veicoloDettagli!.note),
+      descrizione: new FormControl(this.veicoloDettagli!.descrizione),
       prezzo: new FormControl(this.veicoloDettagli!.prezzo)
     })
   }

@@ -20,7 +20,7 @@
               <th>Targa</th>
               <th>Data arrivo</th>
               <th>Prezzo</th>
-              <th>Note</th>
+              <th>Descrizione</th>
               <th></th>
             </tr>
           </thead>
@@ -32,9 +32,10 @@
               <td>{{veicolo.targa}}</td>
               <td>{{veicolo.dataArrivo | date:'dd/MM/yyyy'}}</td>
               <td>{{veicolo.prezzo | currency:'EUR':'symbol':'1.2-2'}}</td>
-              <td>{{ veicolo.note | slice:0:20 }}{{ veicolo.note.length > 20 ? '...' : '' }}</td>
+              <td>{{ veicolo.descrizione | slice:0:40 }}{{ veicolo.descrizione.length > 40 ? '...' : '' }}</td>
               <td>
-                <button (click)="veicoliService.setVeicoloDettagli(veicolo)" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#dettagliStaticModal" style="margin-right: 2%;">Dettagli</button>
+                <button class="btn btn-sm btn-outline-success" style="margin-right: 2%;">Preventivo</button>
+                <button (click)="veicoliService.setVeicoloDettagli(veicolo, true)" class="btn btn-sm btn-outline-primary" style="margin-right: 2%;">Dettagli</button>
                 <button class="btn btn-sm btn-outline-danger" (click)="eliminaVeicolo(veicolo)">Elimina</button>
               </td>
             </tr>

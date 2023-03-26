@@ -1,0 +1,11 @@
+.link{
+    color: rgb(72, 72, 237);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.link:hover{
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: rgb(72, 72, 237);
+}

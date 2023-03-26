@@ -7,7 +7,7 @@ export interface Veicolo{
     anno: number;
     targa: string;
     dataArrivo: Date;
-    note: string;
+    descrizione: string;
     foto: string[];
     prezzo: number
     stato: StatoVeicolo

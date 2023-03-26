@@ -29,51 +29,54 @@
                         <div class="row" style="margin-top: 2%;">
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="marca" formControlName="marca" placeholder=" ">
+                                    <input [readOnly]="!veicoliService.update" type="text" class="form-control" id="marca" formControlName="marca" placeholder=" ">
                                     <label for="marca">Marca</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="modello" formControlName="modello" placeholder=" ">
+                                    <input [readOnly]="!veicoliService.update" type="text" class="form-control" id="modello" formControlName="modello" placeholder=" ">
                                     <label for="modello">Modello</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="anno" formControlName="anno" placeholder=" ">
+                                    <input [readOnly]="!veicoliService.update" type="number" class="form-control" id="anno" formControlName="anno" placeholder=" ">
                                     <label for="anno">Anno</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="targa" formControlName="targa" placeholder=" ">
+                                    <input [readOnly]="!veicoliService.update" type="text" class="form-control" id="targa" formControlName="targa" placeholder=" ">
                                     <label for="targa">Targa</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="prezzo" formControlName="prezzo" placeholder=" " thousandSeparator="." decimalMarker="," mask="separator.2" [dropSpecialCharacters]="true">
+                                    <input [readOnly]="!veicoliService.update" type="text" class="form-control" id="prezzo" formControlName="prezzo" placeholder=" " thousandSeparator="." decimalMarker="," mask="separator.2" [dropSpecialCharacters]="true">
                                     <label for="prezzo">Prezzo</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="dataArrivo" formControlName="dataArrivo" placeholder=" ">
+                                    <input [readOnly]="!veicoliService.update" type="date" class="form-control" id="dataArrivo" formControlName="dataArrivo" placeholder=" ">
                                     <label for="dataArrivo">Data Arrivo</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control" id="note" style="height: 30%;" formControlName="note" placeholder="Note..."></textarea>
+                                    <textarea [readOnly]="!veicoliService.update" class="form-control" id="descrizione" style="height: 10vh; resize: none;" formControlName="descrizione" placeholder="descrizione..."></textarea>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal" (click)="reset()">Annulla</button>
-                    <button type="button" class="btn btn-primary" (click)="salvaVeicolo()">Salva</button>
+                    <button type="button" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal" (click)="reset()">
+                        <span *ngIf="veicoliService.update">Annulla</span>
+                        <span *ngIf="!veicoliService.update">Chiudi</span>
+                    </button>
+                    <button *ngIf="veicoliService.update" type="button" class="btn btn-primary" (click)="salvaVeicolo()">Salva</button>
                 </div>
             </div>
         </div>
